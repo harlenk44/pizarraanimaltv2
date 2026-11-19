@@ -1,0 +1,1145 @@
+/* ==========================================================================
+   Pizarra Animaltec TV - CSS Clásico Compatible con Smart TVs Antiguos
+   Sin CSS Grid, sin variables CSS, sin oklch(), sin @layer, solo #hex
+   ========================================================================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #080c16;
+  color: #f8fafc;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+button {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.mono-text {
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   PANTALLAS BASE
+   ========================================================================== */
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.screen-center {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: #080c16;
+}
+
+.screen-center-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   PANTALLA DE CARGA
+   ========================================================================== */
+
+.loading-box {
+  display: inline-block;
+  width: 520px;
+  max-width: 92%;
+  padding: 36px 32px;
+  background-color: #111827;
+  border: 2px solid #243247;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.brand-mark {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #f8fafc;
+  margin-bottom: 14px;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #cbd5e1;
+}
+
+.loading-actions {
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   ALERTAS Y BOTONES GENERALES
+   ========================================================================== */
+
+.error-banner {
+  margin: 14px 0;
+  padding: 12px 16px;
+  background-color: #3b1116;
+  border: 1px solid #dc2626;
+  border-radius: 6px;
+  color: #fecaca;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info-banner {
+  margin: 14px 0;
+  padding: 12px 16px;
+  background-color: #172554;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  color: #dbeafe;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: #2563eb;
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 11px 22px;
+  background-color: #1e293b;
+  border: 2px solid #475569;
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.btn-danger {
+  display: inline-block;
+  padding: 11px 22px;
+  background-color: #b91c1c;
+  border: 2px solid #ef4444;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* Foco de alta visibilidad para control remoto de TV */
+.tv-focus,
+button:focus {
+  border-color: #f59e0b !important;
+  background-color: #b45309 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   PANTALLA DE ACTIVACIÓN POR PIN
+   ========================================================================== */
+
+.pin-panel {
+  display: inline-block;
+  width: 500px;
+  max-width: 94%;
+  padding: 28px 32px 24px 32px;
+  background-color: #111827;
+  border: 2px solid #26354d;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.pin-header {
+  margin-bottom: 18px;
+}
+
+.pin-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.pin-subtitle {
+  font-size: 15px;
+  color: #94a3b8;
+}
+
+.pin-digits-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 18px 0 20px 0;
+}
+
+.pin-digit-cell {
+  display: table-cell;
+  padding: 0 5px;
+  vertical-align: middle;
+}
+
+.pin-slot {
+  height: 62px;
+  line-height: 58px;
+  background-color: #0b1220;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  font-size: 32px;
+  font-weight: bold;
+  color: #475569;
+  text-align: center;
+}
+
+.pin-slot-filled {
+  border-color: #2563eb;
+  background-color: #13213c;
+  color: #f8fafc;
+}
+
+.pin-slot-active {
+  border-color: #f59e0b;
+}
+
+.keypad-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px;
+}
+
+.keypad-row {
+  display: table-row;
+}
+
+.keypad-cell {
+  display: table-cell;
+  width: 33.3333%;
+  vertical-align: middle;
+}
+
+.key-btn {
+  display: block;
+  width: 100%;
+  height: 58px;
+  background-color: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+
+.key-btn:hover {
+  background-color: #293548;
+  border-color: #64748b;
+}
+
+.key-btn-action {
+  background-color: #292524;
+  border-color: #57534e;
+  color: #fde68a;
+  font-size: 18px;
+}
+
+.key-btn-submit {
+  background-color: #2563eb;
+  border-color: #3b82f6;
+  color: #ffffff;
+  font-size: 19px;
+}
+
+.key-btn-disabled {
+  background-color: #1e293b;
+  border-color: #273449;
+  color: #64748b;
+}
+
+.pin-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #1f2d42;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.pin-footer-sep {
+  margin: 0 8px;
+  color: #475569;
+}
+
+/* ==========================================================================
+   PANTALLA DE PIZARRA DIARIA
+   ========================================================================== */
+
+.screen-board {
+  background-color: #080c16;
+  color: #f8fafc;
+}
+
+.board-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: #0f172a;
+  border-bottom: 2px solid #1e293b;
+  padding: 0 18px;
+  z-index: 10;
+}
+
+.header-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 54px;
+}
+
+.header-cell {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-left {
+  width: 34%;
+  text-align: left;
+}
+
+.header-center {
+  width: 34%;
+  text-align: center;
+}
+
+.header-right {
+  width: 32%;
+  text-align: right;
+}
+
+.board-title {
+  font-size: 21px;
+  font-weight: bold;
+  color: #f8fafc;
+  letter-spacing: 0.2px;
+}
+
+.board-client-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #93c5fd;
+}
+
+.header-sep {
+  margin: 0 8px;
+  color: #475569;
+  font-weight: normal;
+}
+
+.board-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+.board-clock {
+  font-size: 19px;
+  font-weight: bold;
+  color: #fbbf24;
+}
+
+.offline-note {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fca5a5;
+}
+
+.page-indicator {
+  font-size: 15px;
+  font-weight: bold;
+  color: #cbd5e1;
+  margin-right: 10px;
+}
+
+.header-controls {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hdr-btn {
+  display: inline-block;
+  height: 34px;
+  line-height: 30px;
+  padding: 0 11px;
+  margin-left: 5px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 5px;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.hdr-btn:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+/* Barra discreta de progreso para rotación automática */
+.rotation-bar-wrap {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #131d31;
+  z-index: 9;
+}
+
+.rotation-bar-fill {
+  height: 4px;
+  width: 0%;
+  background-color: #2563eb;
+}
+
+/* Escenario principal de tarjetas */
+.board-stage {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.board-stage-with-bar {
+  top: 60px;
+}
+
+.cards-grid-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.cards-grid-row {
+  display: table-row;
+}
+
+.cards-grid-cell {
+  display: table-cell;
+  vertical-align: top;
+  padding: 0;
+}
+
+.cards-grid-cell-empty {
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   TARJETA DE LOTERÍA
+   ========================================================================== */
+
+.game-card {
+  width: 100%;
+  height: 100%;
+  background-color: #111827;
+  border: 2px solid #243247;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-card-header {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  background-color: #162033;
+  border-bottom: 2px solid #243247;
+  padding: 8px 12px;
+}
+
+.game-logo-cell {
+  display: table-cell;
+  width: 54px;
+  vertical-align: middle;
+}
+
+.game-logo-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background-color: #0b1220;
+  border: 1px solid #334155;
+  overflow: hidden;
+  text-align: center;
+  line-height: 44px;
+}
+
+.game-logo-img {
+  width: 44px;
+  height: 44px;
+  vertical-align: middle;
+}
+
+.game-logo-fallback {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-title-cell {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.game-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-meta {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card-body {
+  padding: 8px 10px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   CUADRÍCULA DE SORTEOS DE ANIMALITOS (TABLA COMPATIBLE)
+   ========================================================================== */
+
+.draws-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
+}
+
+.draws-row {
+  display: table-row;
+}
+
+.draws-cell {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #1b2538;
+  border: 1px solid #2b3a54;
+  border-radius: 7px;
+  padding: 6px 8px;
+}
+
+.draws-cell-empty {
+  display: table-cell;
+  background-color: transparent;
+  border: 0;
+}
+
+.draws-cell-latest {
+  background-color: #172554;
+  border: 2px solid #3b82f6;
+}
+
+.draw-inner {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.draw-media-cell {
+  display: table-cell;
+  width: 48px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.animal-img-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+  background-color: #0b1220;
+  border: 1px solid #334155;
+  overflow: hidden;
+  text-align: center;
+  line-height: 42px;
+}
+
+.animal-img {
+  width: 42px;
+  height: 42px;
+  vertical-align: middle;
+}
+
+.animal-num-badge {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  line-height: 42px;
+  border-radius: 7px;
+  background-color: #0f172a;
+  border: 2px solid #3b82f6;
+  color: #ffffff;
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.draws-cell-latest .animal-num-badge {
+  background-color: #2563eb;
+  border-color: #fbbf24;
+  color: #ffffff;
+}
+
+.draw-info-cell {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 8px;
+  overflow: hidden;
+}
+
+.draw-top-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.draw-time {
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fbbf24;
+}
+
+.draw-num-inline {
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #93c5fd;
+  margin-left: 6px;
+}
+
+.draw-animal-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+/* ==========================================================================
+   TABLA DE RESULTADOS DE TRIPLES
+   ========================================================================== */
+
+.triples-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.triples-head-row {
+  display: table-row;
+}
+
+.triples-head-cell {
+  display: table-cell;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #94a3b8;
+  text-align: center;
+  border-bottom: 1px solid #2b3a54;
+}
+
+.triples-head-left {
+  text-align: left;
+  width: 28%;
+}
+
+.triples-row {
+  display: table-row;
+  background-color: #1b2538;
+}
+
+.triples-row-latest {
+  background-color: #172554;
+}
+
+.triples-cell {
+  display: table-cell;
+  padding: 7px 8px;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Courier New", Consolas, Monaco, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f8fafc;
+  border-top: 1px solid #2b3a54;
+  border-bottom: 1px solid #2b3a54;
+}
+
+.triples-row-latest .triples-cell {
+  border-top: 1px solid #3b82f6;
+  border-bottom: 1px solid #3b82f6;
+}
+
+.triples-time-cell {
+  text-align: left;
+  font-size: 14px;
+  color: #fbbf24;
+  border-left: 1px solid #2b3a54;
+}
+
+.triples-extra-cell {
+  color: #93c5fd;
+  font-size: 15px;
+  border-right: 1px solid #2b3a54;
+}
+
+/* ==========================================================================
+   ESTADOS VACÍOS
+   ========================================================================== */
+
+.game-empty {
+  padding: 26px 14px;
+  text-align: center;
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.board-empty-wrap {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.board-empty-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.board-empty-box {
+  display: inline-block;
+  max-width: 560px;
+  padding: 32px 36px;
+  background-color: #111827;
+  border: 2px solid #243247;
+  border-radius: 10px;
+}
+
+.board-empty-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.board-empty-desc {
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   ESCALAS DE DENSIDAD SEGÚN TARJETAS POR PANTALLA (720p / 1080p)
+   ========================================================================== */
+
+/* 1 Tarjeta (Héroe pantalla completa) */
+.density-1 .game-name {
+  font-size: 32px;
+}
+.density-1 .game-logo-cell {
+  width: 78px;
+}
+.density-1 .game-logo-wrap,
+.density-1 .game-logo-img,
+.density-1 .game-logo-fallback {
+  width: 68px;
+  height: 68px;
+  line-height: 66px;
+  font-size: 26px;
+}
+.density-1 .draws-table {
+  border-spacing: 12px;
+}
+.density-1 .draws-cell {
+  padding: 14px 16px;
+}
+.density-1 .draw-media-cell {
+  width: 72px;
+}
+.density-1 .animal-img-box,
+.density-1 .animal-img,
+.density-1 .animal-num-badge {
+  width: 64px;
+  height: 64px;
+  line-height: 60px;
+  font-size: 30px;
+}
+.density-1 .draw-time {
+  font-size: 19px;
+}
+.density-1 .draw-animal-name {
+  font-size: 26px;
+}
+.density-1 .triples-cell {
+  font-size: 26px;
+  padding: 12px 10px;
+}
+
+/* 2 Tarjetas (2x1) */
+.density-2 .game-name {
+  font-size: 25px;
+}
+.density-2 .draws-table {
+  border-spacing: 8px;
+}
+.density-2 .draws-cell {
+  padding: 10px 10px;
+}
+.density-2 .draw-media-cell {
+  width: 58px;
+}
+.density-2 .animal-img-box,
+.density-2 .animal-img,
+.density-2 .animal-num-badge {
+  width: 52px;
+  height: 52px;
+  line-height: 50px;
+  font-size: 25px;
+}
+.density-2 .draw-time {
+  font-size: 16px;
+}
+.density-2 .draw-animal-name {
+  font-size: 20px;
+}
+.density-2 .triples-cell {
+  font-size: 22px;
+  padding: 10px 8px;
+}
+
+/* 6 Tarjetas (3x2) */
+.density-6 .cards-grid-table {
+  border-spacing: 8px;
+}
+.density-6 .game-card-header {
+  padding: 6px 10px;
+}
+.density-6 .game-logo-cell {
+  width: 42px;
+}
+.density-6 .game-logo-wrap,
+.density-6 .game-logo-img,
+.density-6 .game-logo-fallback {
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  font-size: 15px;
+}
+.density-6 .game-name {
+  font-size: 17px;
+}
+.density-6 .game-meta {
+  font-size: 12px;
+}
+.density-6 .game-card-body {
+  padding: 5px 7px;
+}
+.density-6 .draws-table {
+  border-spacing: 4px;
+}
+.density-6 .draws-cell {
+  padding: 4px 6px;
+}
+.density-6 .draw-media-cell {
+  width: 36px;
+}
+.density-6 .animal-img-box,
+.density-6 .animal-img,
+.density-6 .animal-num-badge {
+  width: 34px;
+  height: 34px;
+  line-height: 32px;
+  font-size: 16px;
+}
+.density-6 .draw-time {
+  font-size: 11px;
+}
+.density-6 .draw-animal-name {
+  font-size: 14px;
+}
+.density-6 .triples-cell {
+  font-size: 15px;
+  padding: 5px 6px;
+}
+
+/* 8+ Tarjetas (4x2 o TODAS) */
+.density-many .cards-grid-table {
+  border-spacing: 6px;
+}
+.density-many .game-card-header {
+  padding: 5px 8px;
+}
+.density-many .game-logo-cell {
+  width: 34px;
+}
+.density-many .game-logo-wrap,
+.density-many .game-logo-img,
+.density-many .game-logo-fallback {
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  font-size: 13px;
+}
+.density-many .game-name {
+  font-size: 15px;
+}
+.density-many .game-meta {
+  display: none;
+}
+.density-many .game-card-body {
+  padding: 4px 6px;
+}
+.density-many .draws-table {
+  border-spacing: 3px;
+}
+.density-many .draws-cell {
+  padding: 3px 5px;
+}
+.density-many .draw-media-cell {
+  width: 30px;
+}
+.density-many .animal-img-box,
+.density-many .animal-img,
+.density-many .animal-num-badge {
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  font-size: 14px;
+}
+.density-many .draw-info-cell {
+  padding-left: 5px;
+}
+.density-many .draw-time {
+  font-size: 10px;
+}
+.density-many .draw-animal-name {
+  font-size: 13px;
+}
+.density-many .triples-cell {
+  font-size: 13px;
+  padding: 4px 5px;
+}
+
+/* ==========================================================================
+   MODAL CONFIRMACIÓN DE PIN
+   ========================================================================== */
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  background-color: #050811;
+  z-index: 100;
+}
+
+.modal-center-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 20px;
+}
+
+.modal-box {
+  display: inline-block;
+  width: 460px;
+  max-width: 92%;
+  padding: 28px 30px;
+  background-color: #111827;
+  border: 2px solid #334155;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.modal-desc {
+  font-size: 16px;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+
+.modal-meta {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 22px;
+}
+
+.modal-actions button {
+  margin: 0 8px;
+}
+
+/* ==========================================================================
+   AJUSTES PARA RESOLUCIONES 1080p Y 720p
+   ========================================================================== */
+
+@media screen and (min-width: 1600px) {
+  .board-header {
+    height: 66px;
+    padding: 0 26px;
+  }
+  .header-table {
+    height: 64px;
+  }
+  .board-title {
+    font-size: 26px;
+  }
+  .board-client-name {
+    font-size: 19px;
+  }
+  .board-date {
+    font-size: 22px;
+  }
+  .board-clock {
+    font-size: 24px;
+  }
+  .page-indicator {
+    font-size: 18px;
+  }
+  .hdr-btn {
+    height: 40px;
+    line-height: 36px;
+    font-size: 15px;
+    padding: 0 14px;
+  }
+  .rotation-bar-wrap {
+    top: 66px;
+  }
+  .board-stage {
+    top: 66px;
+    padding: 16px;
+  }
+  .board-stage-with-bar {
+    top: 70px;
+  }
+  .game-name {
+    font-size: 24px;
+  }
+  .draw-time {
+    font-size: 15px;
+  }
+  .draw-animal-name {
+    font-size: 19px;
+  }
+  .animal-img-box,
+  .animal-img,
+  .animal-num-badge {
+    width: 52px;
+    height: 52px;
+    line-height: 48px;
+    font-size: 24px;
+  }
+  .draw-media-cell {
+    width: 56px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .board-title {
+    font-size: 17px;
+  }
+  .board-date,
+  .board-clock {
+    font-size: 15px;
+  }
+  .page-indicator {
+    font-size: 13px;
+  }
+  .game-name {
+    font-size: 16px;
+  }
+  .draw-animal-name {
+    font-size: 14px;
+  }
+}

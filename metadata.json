@@ -1,0 +1,6 @@
+{
+  "name": "Pizarra Animaltec TV",
+  "description": "Aplicación web ultraligera en HTML5, CSS clásico y JavaScript ES5 para Smart TVs antiguos, con proxy Cloudflare Pages Functions para sincronizar resultados diarios de loterías de animalitos y triples.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

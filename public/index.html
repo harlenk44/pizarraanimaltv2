@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Pizarra Animaltec TV</title>
+  <meta name="description" content="Pizarra digital ultraligera para Smart TVs con resultados diarios de loterías de animalitos y triples en tiempo real." />
+  <meta property="og:title" content="Pizarra Animaltec TV" />
+  <meta property="og:description" content="Pizarra digital ultraligera para Smart TVs con resultados diarios de loterías de animalitos y triples en tiempo real." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style id="dynamic-theme-style" type="text/css"></style>
+  <script type="text/javascript">
+    (function () {
+      try {
+        if (typeof Object.getOwnPropertyDescriptor === "function" && typeof Object.defineProperty === "function") {
+          var desc = Object.getOwnPropertyDescriptor(window, "fetch");
+          if (desc && desc.configurable && desc.get && !desc.set) {
+            var origGet = desc.get;
+            var customFetch = null;
+            Object.defineProperty(window, "fetch", {
+              configurable: true,
+              enumerable: Boolean(desc.enumerable),
+              get: function () {
+                return customFetch || origGet.call(window);
+              },
+              set: function (val) {
+                if (typeof val === "function") {
+                  customFetch = val;
+                }
+              }
+            });
+          }
+        }
+      } catch (_e) {}
+
+      if (window.addEventListener) {
+        window.addEventListener("error", function (evt) {
+          var src = evt && evt.filename ? String(evt.filename) : "";
+          if (src.indexOf("chrome-extension://") === 0 || src.indexOf("moz-extension://") === 0) {
+            if (evt.preventDefault) evt.preventDefault();
+            if (evt.stopImmediatePropagation) evt.stopImmediatePropagation();
+          }
+        }, true);
+      }
+
+      var prevOnError = window.onerror;
+      window.onerror = function (msg, src, line, col, err) {
+        if (src && (String(src).indexOf("chrome-extension://") === 0 || String(src).indexOf("moz-extension://") === 0)) {
+          return true;
+        }
+        if (typeof prevOnError === "function") {
+          return prevOnError(msg, src, line, col, err);
+        }
+        return false;
+      };
+    })();
+  </script>
+</head>
+<body>
+  <!-- PANTALLA 1: CARGA INICIAL -->
+  <div id="screen-loading" class="screen screen-center">
+    <div class="screen-center-cell">
+      <div class="loading-box">
+        <div class="brand-mark">PIZARRA ANIMALTEC TV</div>
+        <div id="loading-status" class="loading-text">Conectando con el servidor de resultados...</div>
+        <div id="loading-error" class="error-banner hidden"></div>
+        <div id="loading-actions" class="loading-actions hidden">
+          <button type="button" id="btn-retry-boot" class="btn-primary tv-focus">Reintentar conexión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA 2: ACTIVACIÓN POR PIN (6 DÍGITOS) -->
+  <div id="screen-pin" class="screen screen-center hidden">
+    <div class="screen-center-cell">
+      <div class="pin-panel">
+        <div class="pin-header">
+          <div id="pin-brand-title" class="pin-title">Pizarra Animaltec TV</div>
+          <div class="pin-subtitle">Ingrese su PIN de 6 dígitos con el control remoto o teclado</div>
+        </div>
+
+        <div id="pin-alert" class="error-banner hidden"></div>
+
+        <div class="pin-digits-table" id="pin-digits">
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-0">-</div></div>
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-1">-</div></div>
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-2">-</div></div>
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-3">-</div></div>
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-4">-</div></div>
+          <div class="pin-digit-cell"><div class="pin-slot" id="pin-slot-5">-</div></div>
+        </div>
+
+        <div id="pin-keypad" class="keypad-table">
+          <div class="keypad-row">
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="1" data-row="0" data-col="0">1</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="2" data-row="0" data-col="1">2</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="3" data-row="0" data-col="2">3</button></div>
+          </div>
+          <div class="keypad-row">
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="4" data-row="1" data-col="0">4</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="5" data-row="1" data-col="1">5</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="6" data-row="1" data-col="2">6</button></div>
+          </div>
+          <div class="keypad-row">
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="7" data-row="2" data-col="0">7</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="8" data-row="2" data-col="1">8</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="9" data-row="2" data-col="2">9</button></div>
+          </div>
+          <div class="keypad-row">
+            <div class="keypad-cell"><button type="button" class="key-btn key-btn-action" data-key="CLEAR" data-row="3" data-col="0">Borrar</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn" data-key="0" data-row="3" data-col="1">0</button></div>
+            <div class="keypad-cell"><button type="button" class="key-btn key-btn-submit" data-key="SUBMIT" data-row="3" data-col="2" id="btn-pin-submit">Activar</button></div>
+          </div>
+        </div>
+
+        <div class="pin-footer">
+          <span class="pin-footer-item">ID TV: <strong id="pin-device-id" class="mono-text">---</strong></span>
+          <span class="pin-footer-sep">&middot;</span>
+          <span class="pin-footer-item">Flechas + OK para navegar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA 3: PIZARRA DIARIA -->
+  <div id="screen-board" class="screen screen-board hidden">
+    <div id="board-header" class="board-header">
+      <div class="header-table">
+        <div class="header-cell header-left">
+          <span id="board-title" class="board-title">Pizarra Animaltec TV</span>
+          <span id="board-client-sep" class="header-sep hidden">&middot;</span>
+          <span id="board-client-name" class="board-client-name hidden"></span>
+        </div>
+
+        <div class="header-cell header-center">
+          <span id="board-date" class="board-date">---</span>
+          <span class="header-sep">&middot;</span>
+          <span id="board-clock" class="board-clock mono-text">--:--:--</span>
+          <span id="board-offline-note" class="offline-note hidden">&middot; Sin conexión</span>
+        </div>
+
+        <div class="header-cell header-right">
+          <span id="board-page-indicator" class="page-indicator mono-text">Página 1 / 1</span>
+          <span class="header-controls" id="header-controls">
+            <button type="button" class="hdr-btn hidden" id="btn-prev-page" data-action="prev" title="Página anterior">&lsaquo;</button>
+            <button type="button" class="hdr-btn hidden" id="btn-next-page" data-action="next" title="Página siguiente">&rsaquo;</button>
+            <button type="button" class="hdr-btn" id="btn-reload" data-action="reload" title="Actualizar resultados">Recargar</button>
+            <button type="button" class="hdr-btn" id="btn-change-pin" data-action="pin" title="Cambiar PIN">PIN</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="rotation-bar-wrap" class="rotation-bar-wrap hidden">
+      <div id="rotation-bar-fill" class="rotation-bar-fill"></div>
+    </div>
+
+    <div id="board-stage" class="board-stage">
+      <!-- Tarjetas renderizadas dinámicamente por app.js -->
+    </div>
+  </div>
+
+  <!-- MODAL DISCRETO PARA CAMBIAR PIN (SIN window.confirm) -->
+  <div id="pin-modal" class="modal-backdrop hidden">
+    <div class="modal-center-cell">
+      <div class="modal-box">
+        <div class="modal-title">Cambiar PIN de licencia</div>
+        <div id="modal-desc" class="modal-desc">¿Desea volver a la pantalla de activación para ingresar otro PIN?</div>
+        <div class="modal-meta">Dispositivo: <span id="modal-device-id" class="mono-text">---</span></div>
+        <div class="modal-actions" id="modal-actions">
+          <button type="button" class="btn-secondary" id="btn-modal-cancel" data-modal="cancel">Cancelar</button>
+          <button type="button" class="btn-danger" id="btn-modal-confirm" data-modal="confirm">Cambiar PIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
